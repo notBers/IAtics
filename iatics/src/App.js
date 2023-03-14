@@ -2,7 +2,7 @@ import { Main } from './Main';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { ChicagoCitationForm } from './Citation';
-import { Search, Resumes } from './Search';
+import { Search, Resumes, Assistance } from './Search';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Route path='/cites/manual' element={<ChicagoCitationForm/>}/>
         <Route path='/search/engine' element={<Search/>}/>
         <Route path='/search/resumes' element={<Resumes/>}/>
-
+        <Route path='/search/assistance' element= {<Assistance/>}/>
       </Routes>
   </div>
   );

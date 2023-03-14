@@ -132,7 +132,8 @@ export function Resumes(){
   
     return (
       <div>
-        <form onSubmit={handleSubmit}>
+        <nav><Link to='/search'>{"<"}</Link></nav>
+        <form onSubmit={handleSubmit} id='mainsquare'>
           <label>
             Enter {selectedOption === "URL" ? "URL" : "book or text"}:
             <input
@@ -165,10 +166,86 @@ export function Resumes(){
           
       </div>
     );
-  
-
 }
 
+export function Assistance(){
+    const [inputValue, setInputValue] = useState("");
+    const [selectValue, setSelectValue] = useState("Define");
+    const [responseText, setResponseText] = useState("");
+  
+    const handleInputChange = (event) => {
+      setInputValue(event.target.value);
+    };
+  
+    const handleSelectChange = (event) => {
+      setSelectValue(event.target.value);
+    };
+  
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+  
+      const prefix = selectValue + " ";
+      const response = await fetch(
+        `https://api.openai.com/v1/completions`,
+        {
+          body: JSON.stringify({
+            model: "text-davinci-003",
+            prompt: prefix + inputValue + 'Tener en cuenta, el lenguaje y proposito academico, de no ser apropiada la pregunta, no responderla. Enviar en formato adecuado (parrafos, saltos de linea, etc)',
+            temperature: 0,
+            max_tokens: 500,
+          }),
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            Authorization: "Bearer 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",
+          },
+        }
+      );
+  
+      const { choices } = await response.json();
+      const { text } = choices[0];
+  
+      setResponseText(text);
+    };
+  
+    return (
+        <>
+        <nav><Link to='/search'>{"<"}</Link></nav>
+      <form id='assistancecon'onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="input">Input:</label>
+          <input
+            type="text"
+            id="input"
+            value={inputValue}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="select">Select:</label>
+          <select id="select" value={selectValue} onChange={handleSelectChange}>
+            <option value="Define">Define</option>
+            <option value="Analyze">Analyze</option>
+            <option value="Create">Create</option>
+            <option value="Explain">Explain</option>
+            <option value="Write">Write</option>
+            <option value="Design">Design</option>
+            <option value="List">List</option>
+            <option value="Points">Points</option>
+            <option value="Brainstorm">Brainstorm</option>
+          </select>
+        </div>
+        <button type="submit">Submit</button>
+        {responseText && (
+          <div id='preresponse'>
+            
+            <code id="response">{responseText}</code>
+          </div>
+        )}
+      </form>
+      </>
+    );
+}
 
 
 

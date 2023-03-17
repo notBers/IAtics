@@ -108,9 +108,12 @@
     text-align: right;
     }
 
-    #mainsquare{
+    .mainsquare{
        max-width: 90%;
-       margin: auto auto 30px auto
+       margin: auto auto 30px auto;
+       height: 80vh;
+ 
+
     }
 
     #response{
@@ -125,4 +128,34 @@
     #assistancecon{
         max-width: 90vw;
         margin: auto;
+        overflow-x: scroll;
+    }
+
+    #submitter{
+        max-width: 80vw;
+        width: 100%;
+        margin: 10px auto auto auto;
+        height: 100%;
+        max-height: 100vh;
+        
+    }
+
+    #megacon{
+        display: flex;
+        max-width: 70vw;
+        margin: auto;
+        max-height: 60vh;
+        height: 100%;
+        padding: 5px;
+    
+    }
+
+    button{
+        margin-top: 15px;
+        margin-bottom: 10%;
+
+    }
+
+    button:active{
+        color: rgb(5, 5, 37);
     }

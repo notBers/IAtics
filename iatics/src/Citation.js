@@ -219,3 +219,70 @@ export function ChicagoCitationForm() {
             
   )
 }
+
+export function Googlecitation(){
+  
+  const [inputValue, setInputValue] = useState("");
+  
+  const [responseText, setResponseText] = useState("");
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+
+
+  const handleSubmit = async (event) => {
+    
+    event.preventDefault();
+
+    console.log(inputValue)
+
+    const response = await fetch(
+      `http://localhost:3001/hello2`,
+      {
+        body: JSON.stringify({
+          q: inputValue,
+        }),
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+      }
+      }
+    );
+
+    const choices  = await response.json();
+
+    setResponseText(choices);
+  };
+
+  return (
+      <>
+      <nav><Link to='/search'>{"<"}</Link></nav>
+    <form id='assistancecon'onSubmit={handleSubmit} className='mainsquare'>
+      <div>
+        <label htmlFor="input">ID:</label>
+        <input
+          type="text"
+          id="input"
+          value={inputValue}
+          onChange={handleInputChange}
+        />
+      </div>
+      <button type="submit">Submit</button>
+      {responseText && (
+        <div id='preresponse'>
+
+           <label id="response">
+            
+            {responseText.map(((dict) => (
+              <><h1>format: {dict.format}: ({dict.cite})</h1></>
+             )))}</label>
+          
+         
+        </div>
+      )}
+    </form>
+    </>
+  );
+}

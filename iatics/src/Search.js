@@ -133,7 +133,7 @@ export function Resumes(){
     return (
       <div>
         <nav><Link to='/search'>{"<"}</Link></nav>
-        <form onSubmit={handleSubmit} id='mainsquare'>
+        <form onSubmit={handleSubmit} className='mainsquare'>
           <label>
             Enter {selectedOption === "URL" ? "URL" : "book or text"}:
             <input
@@ -157,12 +157,13 @@ export function Resumes(){
           </label>
           <br />
           <button type="submit">Submit</button>
-        </form>
-        <pre>
-            <code>
+          
+            <label id='co'>
                 {response}
-            </code>
-        </pre>
+            </label>
+        
+        </form>
+
           
       </div>
     );
@@ -182,6 +183,7 @@ export function Assistance(){
     };
   
     const handleSubmit = async (event) => {
+      
       event.preventDefault();
   
       const prefix = selectValue + " ";
@@ -211,7 +213,7 @@ export function Assistance(){
     return (
         <>
         <nav><Link to='/search'>{"<"}</Link></nav>
-      <form id='assistancecon'onSubmit={handleSubmit}>
+      <form id='assistancecon'onSubmit={handleSubmit} className='mainsquare'>
         <div>
           <label htmlFor="input">Input:</label>
           <input
@@ -238,8 +240,13 @@ export function Assistance(){
         <button type="submit">Submit</button>
         {responseText && (
           <div id='preresponse'>
-            
-            <code id="response">{responseText}</code>
+            {selectValue =='List' &&
+            <pre><code>{responseText}</code></pre>
+            }
+            {selectValue !='List' &&
+             <label id="response">{responseText}</label>
+            }
+           
           </div>
         )}
       </form>

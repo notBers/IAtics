@@ -29,6 +29,31 @@ app.post('/hello', (req, res) => {
     fetching()
 });
 
+app.post('/hello2', (req, res) => {
+  console.log(req.body.q)
+  async function fetching(){
+    const response = await fetch(`https://serpapi.com/search.json?engine=google_scholar_cite&q=${req.body.q}&api_key=6ea373749e00a28e4a69054b5a5a6dd835543ac87332d166f7972c0d8bb16c8b`);
+    const data = await response.json();
+    var tempdata = {};
+    var result;
+    results = [];
+    result = data.citations;
+    result?.map((sult) =>{
+            tempdata = {format: '', cite:''};
+            tempdata.format = sult.title;
+            tempdata.cite = sult.snippet;
+            results.push(tempdata)
+        })
+        console.log(results)
+        res.send(results)
+  }
+
+  fetching()
+});
+
+
+
+
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });

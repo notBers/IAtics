@@ -258,7 +258,7 @@ export function Googlecitation(){
 
   return (
       <>
-      <nav><Link to='/search'>{"<"}</Link></nav>
+      <nav><Link to='/cites'>{"<"}</Link></nav>
     <form id='assistancecon'onSubmit={handleSubmit} className='mainsquare'>
       <div>
         <label htmlFor="input">ID:</label>

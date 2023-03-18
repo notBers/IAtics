@@ -72,10 +72,7 @@ export function Search() {
                 {result.title}
               </a>
               <p className="search-result-summary">{result.summary}</p>
-              <p className="search-result-author">Cite Tool {result.cite_tool}</p>
-              <a href={result.link} className="search-result-title">
-                {result.title}
-              </a>
+              <p className="search-result-author">Cite Tool: {result.cite_tool}</p>
             </li>
           ))}
         </ul>

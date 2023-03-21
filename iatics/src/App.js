@@ -16,7 +16,7 @@ function App() {
         <Route path='/checker' element={<Checker/>}/>
         <Route path="/search" element={<Searchmenu/>}/>
         <Route path="/cites" element={<Citesmenu/>}/>
-        <Route path="/tools/charts" element={<ChartGenerator/>}/>
+        <Route path="/charts" element={<ChartGenerator/>}/>
         <Route path='/cites/manual' element={<ChicagoCitationForm/>}/>
         <Route path='/cites/engine' element={<Googlecitation/>}/>
         <Route path='/search/engine' element={<Search/>}/>

@@ -20,7 +20,7 @@ export function ChartGenerator() {
 
   return (
     <>
-    <nav><Link to='/search'>{"<"}</Link></nav>
+    <nav><Link to='/'>{"<"}</Link></nav>
     <h1>Chart Generator</h1>
     <div id='megacon'>
       

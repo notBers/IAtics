@@ -14,7 +14,7 @@ export function Main() {
         <Link className="item" id='search' to={'/search'}><div><img src={search} className='lupa'/></div>Search</Link>
         <Link className="item" id="cites"  to={'/cites'}><div><img src={menu} className='lupa'/></div>Cites</Link>
         <Link className="item" id='checker'to={'/checker'}><div><img src={edit} className='lupa'/></div>Checker</Link>
-        <Link className="item" id='tools'  to={'/tools'}><div><img src={waterfall} className='lupa'/></div>Tools</Link>
+        <Link className="item" id='tools'  to={'/charts'}><div><img src={waterfall} className='lupa'/></div>Tools</Link>
       </div>
     </>
   );

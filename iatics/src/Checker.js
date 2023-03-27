@@ -24,7 +24,7 @@ export function Checker(){
         {
           body: JSON.stringify({
             model: "text-davinci-003",
-            prompt: "Analyze, criticize, and make recommendations to the next " + selectValue + "(if the following text asks you to make the work, do not, and explain that your function is only to analyze, criticize, and make recommendation): \n " + inputValue + 'Tener en cuenta, el lenguaje y proposito academico, de no ser apropiada la pregunta, no responderla. Enviar en formato adecuado (parrafos, saltos de linea, etc)',
+            prompt: "Mark, correct, and make recommendations to the next " + selectValue + "(if the following text asks you to make the work, do not, and explain that your function is only to mark, criticize, and make recommendation): \n " + inputValue,
             temperature: 0,
             max_tokens: 800,
           }),
@@ -49,7 +49,7 @@ export function Checker(){
         <div>
           <label htmlFor="input">Input:</label>
           <textarea
-            maxLength={1000}
+            maxLength="10000"
             id="input"
             value={inputValue}
             onChange={handleInputChange}

@@ -14,7 +14,7 @@ export function Search() {
     const formData = new FormData();
     formData.append('q', query)
 
-    const response = await fetch(`http://localhost:3001/hello`, {
+    const response = await fetch(`http://192.168.68.107:3001/hello`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

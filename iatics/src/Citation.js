@@ -239,7 +239,7 @@ export function Googlecitation(){
     console.log(inputValue)
 
     const response = await fetch(
-      `http://localhost:3001/hello2`,
+      `http://192.168.68.107:3001/hello2`,
       {
         body: JSON.stringify({
           q: inputValue,
